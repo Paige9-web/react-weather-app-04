@@ -1,6 +1,50 @@
 .weather {
-  background-color: rgba(125, 235, 252, 0.483);
-  font-family: arial, sans-serif;
+  background-color: rgba(36, 99, 138, 0.483);
+  color: white;
+  font-family: system-ui;
+  font-weight: lighter;
   padding: 16px;
   border-radius: 4px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+}
+.weather h1 {
+  font-weight: lighter;
+}
+.default-weather {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.additional-info {
+  list-style: none;
+}
+.mb-3 {
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+}
+.btn.btn-primary {
+  padding: 0 16px;
+  height: 38px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: rgba(36, 99, 138, 0.151);
+  color: white;
+}
+.btn :hover {
+  color: rgba(36, 99, 138, 0.483);
+}
+footer {
+  font-size: 12px;
+  display: inline;
+  max-width: 500px;
+}
+.temperature {
+  font-size: 50px;
+}
+.unit {
 }
