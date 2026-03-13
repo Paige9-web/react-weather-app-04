@@ -16,12 +16,20 @@ export default function Weather() {
 
     setWeather({
       temperature: Math.round(weatherResponse.data.temperature.current),
+      date: new Date(weatherResponse.data.time * 1000),
       description: weatherResponse.data.condition.description,
       humidity: weatherResponse.data.temperature.humidity,
       wind: weatherResponse.data.wind.speed,
       icon: weatherResponse.data.condition.icon_url,
     });
   };
+  function formatDate(date) {
+    return date.toLocaleString("en-GB", {
+      weekday: "long",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  }
 
   return (
     <div className="weather">
@@ -40,6 +48,7 @@ export default function Weather() {
           <h1>{city}</h1>
 
           <ul className="default-weather">
+            <li>{formatDate(weather.date)}</li>
             <li>{weather.description}</li>
           </ul>
 
