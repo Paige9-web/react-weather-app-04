@@ -7,7 +7,6 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1 className="text-primary"></h1>
         <Weather />
       </div>
       <footer>
