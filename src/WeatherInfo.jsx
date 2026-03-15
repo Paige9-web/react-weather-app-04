@@ -1,4 +1,5 @@
 import React from "react";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherInfo({ weather, formatDate }) {
   return (
@@ -11,8 +12,7 @@ export default function WeatherInfo({ weather, formatDate }) {
       <div className="row">
         <div className="col-6">
           <img src={weather.icon} alt={weather.description} />
-          <span className="temperature">{weather.temperature}</span>
-          <span className="unit">°C</span>
+          <WeatherTemperature celsius={weather.temperature} />
         </div>
 
         <div className="col-6">
