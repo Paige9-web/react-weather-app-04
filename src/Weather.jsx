@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import WeatherInfo from "./WeatherInfo";
 
 export default function Weather() {
   const [city, setCity] = useState("");
@@ -11,7 +12,6 @@ export default function Weather() {
     e.preventDefault();
 
     const weatherUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apikey}`;
-
     const weatherResponse = await axios.get(weatherUrl);
 
     setWeather({
@@ -23,6 +23,7 @@ export default function Weather() {
       icon: weatherResponse.data.condition.icon_url,
     });
   };
+
   function formatDate(date) {
     return date.toLocaleString("en-GB", {
       weekday: "long",
@@ -43,30 +44,7 @@ export default function Weather() {
         <input type="submit" value="Search" className="btn btn-primary" />
       </form>
 
-      {weather && (
-        <>
-          <h1>{city}</h1>
-
-          <ul className="default-weather">
-            <li>{formatDate(weather.date)}</li>
-            <li>{weather.description}</li>
-          </ul>
-
-          <div className="row">
-            <div className="col-6">
-              <img src={weather.icon} alt={weather.description} />
-              <span className="temperature">{weather.temperature}</span>
-              <span className="unit">°C</span>
-            </div>
-            <div className="col-6">
-              <ul className="additional-info">
-                <li>Humidity: {weather.humidity}%</li>
-                <li>Wind: {weather.wind} km/h</li>
-              </ul>
-            </div>
-          </div>
-        </>
-      )}
+      {weather && <WeatherInfo weather={weather} formatDate={formatDate} />}
     </div>
   );
 }
